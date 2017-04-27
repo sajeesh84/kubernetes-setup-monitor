@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: es
+  labels:
+    name: es
+    app: foodtruck
+spec:
+  ports:
+    # the port that this service should serve on
+  - port: 9200
+    name: es
+    targetPort: 9200
+  selector:
+   name: es
+   app: foodtruck
+  type: NodePort
