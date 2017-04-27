@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: ft
-    image: prakhar1989/foodtrucks-web
+    image: sajeesh84/foodweb
     ports:
     - containerPort: 5000
       name: http
