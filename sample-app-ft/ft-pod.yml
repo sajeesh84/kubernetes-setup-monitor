@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+   name: ft
+   labels:
+     name: ft
+     app: foodtruck
+spec:
+  containers:
+  - name: ft
+    image: prakhar1989/foodtrucks-web
+    ports:
+    - containerPort: 5000
+      name: http
+      protocol: TCP
