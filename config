@@ -1,0 +1,24 @@
+
+###
+# kubernetes system config
+#
+# The following values are used to configure various aspects of all
+# kubernetes services, including
+#
+#   kube-apiserver.service
+#   kube-controller-manager.service
+#   kube-scheduler.service
+#   kubelet.service
+#   kube-proxy.service
+
+
+# Comma separated list of nodes running etcd cluster
+KUBE_ETCD_SERVERS="--etcd-servers=http://$MASTERIP:2379"
+# Logging will be stored in system journal
+KUBE_LOGTOSTDERR="--logtostderr=true"
+# Journal message level, 0 is debug
+KUBE_LOG_LEVEL="--v=0"
+# Should this cluster be allowed to run privileged docker containers
+KUBE_ALLOW_PRIV="--allow-privileged=false"
+# Api-server endpoint used in scheduler and controller-manager
+KUBE_MASTER="--master=http://$MASTERIP:8080"
