@@ -1,13 +1,20 @@
 apiVersion: v1
-kind: Pod
+kind: ReplicationController
 metadata:
   name: es
   labels:
     name: es
     app: foodtruck
 spec:
-  containers:
-  - name: es
-    image: elasticsearch:2.3
-    ports:
-    - containerPort: 9200
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: es
+        app: foodtruck
+    spec:
+       containers:
+         - name: es1
+           image: elasticsearch:2.3
+           ports:
+             - containerPort: 9200
