@@ -1,15 +1,20 @@
 apiVersion: v1
-kind: Pod
+kind: ReplicationController
 metadata:
    name: ft
    labels:
      name: ft
      app: foodtruck
 spec:
-  containers:
-  - name: ft
-    image: sajeesh84/foodweb
-    ports:
-    - containerPort: 5000
-      name: http
-      protocol: TCP
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: ft
+        app: foodtruck
+    spec:
+       containers:
+         - name: ft1
+           image: prakhar1989/foodtrucks-web
+           ports:
+             - containerPort: 5000
